@@ -7,6 +7,12 @@ namespace MyGame
         private string name;
         private float health;
         private float shield;
+        private static int totalPowerUpsCollected;
+
+        static Enemy()
+        {
+            totalPowerUpsCollected = 0;
+        }
 
         public Enemy(string name)
         {
@@ -30,6 +36,11 @@ namespace MyGame
             return shield;
         }
 
+        public static int GetTotalPowerUpsCollected()
+        {
+            return totalPowerUpsCollected;
+        }
+
         public void SetName(string newName)
         {
             name = newName.Substring(0, Math.Min(8, newName.Length));
@@ -37,6 +48,7 @@ namespace MyGame
 
         public void PickupPowerUp(PowerUp powerUp, float value)
         {
+            totalPowerUpsCollected++;
             if (powerUp == PowerUp.Health)
             {
                 health = Math.Min(100, health + value);

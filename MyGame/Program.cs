@@ -33,19 +33,21 @@ namespace MyGame
             {
                 Console.WriteLine($"{inimigo.GetName()} {inimigo.GetHealth()} {inimigo.GetShield()}");
             }
-            
-            Console.WriteLine("\nTestando PowerUp e TakeDamage:");
+
+            Console.WriteLine("\nPowerUp e TakeDamage:");
             foreach (Enemy inimigo in inimigos)
             {
                 inimigo.PickupPowerUp(PowerUp.Shield, Random.Shared.Next(10, 50));
-                Console.WriteLine($"Após PowerUp Shield: {inimigo.GetName()} {inimigo.GetHealth()} {inimigo.GetShield()}");
+                Console.WriteLine($"PowerUp Shield: {inimigo.GetName()} {inimigo.GetHealth()} {inimigo.GetShield()}");
 
                 inimigo.TakeDamage(Random.Shared.Next(10, 100));
-                Console.WriteLine($"Após TakeDamage: {inimigo.GetName()} {inimigo.GetHealth()} {inimigo.GetShield()}");
-                inimigo.PickupPowerUp(PowerUp.Health, Random.Shared.Next(10, 50));
+                Console.WriteLine($"TakeDamage: {inimigo.GetName()} {inimigo.GetHealth()} {inimigo.GetShield()}");
 
-                Console.WriteLine($"Após PowerUp Health: {inimigo.GetName()} {inimigo.GetHealth()} {inimigo.GetShield()}\n");
+                inimigo.PickupPowerUp(PowerUp.Health, Random.Shared.Next(10, 50));
+                Console.WriteLine($"PowerUp Health: {inimigo.GetName()} {inimigo.GetHealth()} {inimigo.GetShield()}\n");
             }
+
+            Console.WriteLine($"\nTotal de PowerUps: {Enemy.GetTotalPowerUpsCollected()}");
         }
     }
 }
