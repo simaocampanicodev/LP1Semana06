@@ -34,4 +34,11 @@ namespace MyRPG
             // Room XCIV: Riker
         }
     }
+
+    public enum Hardness
+    {
+        Easy,
+        Normal,
+        Hard,
+    }    
 }
