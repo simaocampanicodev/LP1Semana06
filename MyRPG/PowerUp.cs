@@ -1,4 +1,4 @@
-namespace MyGame
+namespace MyRPG;
 {
     public enum PowerUp
     {
